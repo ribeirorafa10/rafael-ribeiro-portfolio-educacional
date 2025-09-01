@@ -1,0 +1,647 @@
+/* --- Variáveis de Cores --- */
+:root {
+    --cor-fundo-escuro: #1A202C;
+    /* Azul escuro quase preto para fundo */
+    --cor-fundo-cartao: #2D3748;
+    /* Azul escuro para cartões, sidebar e habilidades */
+    --cor-destaque: #63B3ED;
+    /* Azul claro para destaques e hover */
+    --cor-texto-claro: #E2E8F0;
+    /* Branco com tom azulado para texto principal */
+    --cor-texto-secundario: #A0AEC0;
+    /* Cinza azulado para textos secundários */
+    --cor-borda: #4A5568;
+    /* Cor sutil para bordas */
+}
+
+/* --- Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Adiciona rolagem suave ao navegar */
+}
+
+/* --- Conteudo do body --- */
+body {
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+/* --- Layout Principal --- */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Barra Lateral --- */
+.sidebar {
+    width: 280px;
+    background-color: var(--cor-fundo-cartao);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+    z-index: 1000;
+    border-right: 1px solid var(--cor-borda);
+}
+
+/* --- Espaço entre o logo e o menu de navegação --- */
+.logo {
+    margin-bottom: 40px;
+}
+
+/* --- Estilização da imagem da logo --- */
+.logo img {
+    width: 130px;
+    height: 145px;
+    border-radius: 60%;
+    object-fit: cover;
+    border: 4px solid var(--cor-destaque);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Menu de navegação --- */
+.sidebar-nav {
+    width: 100%;
+    margin-bottom: auto;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 12px 30px;
+    text-decoration: none;
+    color: var(--cor-texto-secundario);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border-right: 4px solid transparent;
+}
+
+/* --- Selecionando os itens da lista do menu para estilização quando o ponteiro do mouse estiver sobre eles --- */
+.sidebar-nav li.active a,
+.sidebar-nav a:hover {
+    color: var(--cor-destaque);
+    background-color: rgba(99, 179, 237, 0.1);
+    border-right-color: var(--cor-destaque);
+}
+
+/* --- Icones das redes sociais --- */
+.redes-socais {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* --- Icones das redes sociais --- */
+.redes-socais a {
+    color: var(--cor-texto-secundario);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+/* --- Icones das redes sociais --- */
+.redes-socais a:hover {
+    color: var(--cor-destaque);
+}
+
+/* --- Seção de direitos autorais --- */
+.copyright {
+    color: var(--cor-texto-secundario);
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+/* --- Conteúdo Principal --- */
+.conteudo-principal {
+    flex: 1;
+    margin-left: 280px;
+    padding: 60px;
+}
+
+.section {
+    display: none;
+    padding: 20px 0;
+}
+
+.section.active {
+    display: block;
+}
+
+/* --- Títulos de cada Seção --- */
+.secao-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--cor-destaque);
+}
+
+.secao-titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--cor-destaque);
+    border-radius: 2px;
+}
+
+/* --- Seção Hero (Início) --- */
+.hero {
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--cor-destaque);
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 40px;
+    color: var(--cor-texto-secundario);
+}
+
+.cta-botao {
+    display: flex;
+    gap: 20px;
+}
+
+/* --- Seção dos botões --- */
+.btn-primario,
+.btn-secundario,
+.btn-enviar {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primario {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-escuro);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-primario:hover {
+    background-color: transparent;
+    color: var(--cor-destaque);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-escuro);
+}
+
+/* --- Seção Sobre Mim --- */
+.sobre-conteudo {
+    max-width: 800px;
+}
+
+.sobre-conteudo p {
+    font-size: 1.1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* --- Seção Sobre Mim (Educação) --- */
+.sobre-detalhes {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.detalhes h3 {
+    color: var(--cor-destaque);
+    margin-bottom: 10px;
+
+}
+
+/* --- Seção Habilidades --- */
+.habilidades-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.habilidades-container div {
+    background-color: var(--cor-fundo-cartao);
+    padding: 20px 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column-reverse;
+    /* Inverte a ordem: texto fica em cima, ícone embaixo */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    aspect-ratio: 1/1;
+    /* Força os cartões a serem quadrados */
+    transition: all 0.3s ease;
+    /* Suaviza as transições */
+    border: 1px solid var(--cor-borda);
+}
+
+.habilidades-container div i {
+    font-size: 4rem;
+    /* Ícone grande */
+    margin-top: 5px;
+    transition: all 0.3s ease;
+    /* Suaviza as transições */
+}
+
+/* Cores personalizadas para cada ícone */
+.habilidades-container .fa-html5 {
+    color: #E44D26;
+}
+
+.habilidades-container .fa-css3 {
+    color: #264DE4;
+}
+
+.habilidades-container .fa-js {
+    color: #F7DF1E;
+}
+
+.habilidades-container .fa-java {
+    color: #007396;
+}
+
+.habilidades-container .fa-python {
+    color: #3776AB;
+}
+
+.habilidades-container .fa-database {
+    color: #00758F;
+}
+
+.habilidades-container div:hover {
+    transform: translateY(-10px);
+    /* Eleva o cartão de habilidades ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Sombra para efeito 3D */
+}
+
+/* --- Seção Portfólio --- */
+.projetos-grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.projeto-cartao {
+    background-color: var(--cor-fundo-cartao);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid var(--cor-borda);
+}
+
+.projeto-cartao:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.projeto-img {
+    height: 300px;
+    overflow: hidden;
+}
+
+.projeto-img img {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+    background-color: #1E2A3B;
+    /* Um pouco mais claro que o fundo para placeholders */
+}
+
+.projeto-detalhes {
+    padding: 20px;
+    /* Espaço interno para a área de detalhes */
+}
+
+.projeto-detalhes h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto-claro);
+}
+
+.projeto-detalhes p {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 20px;
+}
+
+.projeto-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.projeto-tech span {
+    background-color: rgba(99, 179, 237, 0.1);
+    color: var(--cor-destaque);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.btn-link-projeto {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-escuro);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-link-projeto:hover {
+    background-color: #4299E1;
+    transform: translateY(-2px);
+}
+
+/* --- Seção Contato --- */
+.contato-container {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.contato-info,
+.contato-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.contato-item i {
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+    margin-top: 5px;
+}
+
+.contato-item h3 {
+    margin-bottom: 5px;
+    color: var(--cor-texto-claro);
+}
+
+.contato-item p {
+    color: var(--cor-texto-secundario);
+}
+
+.form-grupo {
+    margin-bottom: 20px;
+}
+
+.form-grupo input,
+.form-grupo textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 5px;
+    background-color: var(--cor-fundo-cartao);
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+}
+
+.btn-enviar {
+    width: 100%;
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo-escuro);
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #4299E1;
+}
+
+/* --- Design Responsivo para telas pequenas (dispositivos móveis) --- */
+@media (max-width: 768px) {
+
+    /* Layout principal */
+    .container {
+        display: block;
+        /* Layout em bloco empilhado */
+    }
+
+    .conteudo-principal {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+
+    /* Barra lateral transformada em header */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: sticky;
+        /* Fixa o header ao rolar */
+        top: 0;
+        flex-direction: column;
+        padding: 15px 20px;
+        z-index: 1000;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .logo img {
+        width: 90px;
+        height: 100px;
+    }
+
+    /* Menu de navegação horizontal */
+    .sidebar-nav {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 0;
+    }
+
+    .sidebar-nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-bottom: 5px;
+    }
+
+    .sidebar-nav li {
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .sidebar-nav a {
+        padding: 8px 15px;
+        border-right: none;
+        white-space: nowrap;
+    }
+
+    .sidebar-nav li.active a,
+    .sidebar-nav a:hover {
+        border-right-color: transparent;
+        border-bottom: 3px solid var(--cor-destaque);
+    }
+
+    /* Ajustar seção hero */
+    .hero {
+        height: auto;
+        padding: 60px 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-botao {
+        justify-content: center;
+    }
+
+    /* Ajustar grids */
+    .habilidades-container {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+
+    }
+
+    .habilidades-container div {
+    padding: 0px 0px;
+    }
+
+    .projetos-grade {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Rodapé com o Copyright para os Dispositivos Móveis (Telas Pequenas) --- */
+@media (max-width: 768px) {
+    /* Modificações para o rodapé em telas pequenas */
+    .redes-socais, 
+    .copyright {
+        display: block; /* Exibe os elementos que estavam escondidos */
+    }
+    
+    /* Cria um novo container de rodapé para telas pequenas */
+    .conteudo-principal::after {
+        content: '';
+        display: block;
+        height: 60px; /* Espaço para o rodapé fixo não cobrir o conteúdo */
+    }
+    
+    /* Estilo do rodapé fixo */
+    body::after {
+        content: '';
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background-color: var(--cor-fundo-cartao);
+        z-index: 999;
+        border-top: 1px solid var(--cor-borda);
+    }
+    
+    /* Reposiciona o copyright e redes sociais no rodapé */
+    .redes-socais,
+    .copyright {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--cor-fundo-cartao);
+        z-index: 1000;
+        text-align: center;
+        padding: 2px;
+    }
+    
+    /* Estilo para copyright */
+    .copyright {
+        bottom: 2px;
+        font-size: 0.50rem;
+        opacity: 0.9;
+    }
+    
+    /* Estilo para redes sociais */
+    .redes-socais {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+    }
+    
+    .redes-socais a {
+        font-size: 0.7rem;
+        opacity: 0.9;
+    }
+
+    .redes-socais a:hover {
+        opacity: 1;
+    }
+}
